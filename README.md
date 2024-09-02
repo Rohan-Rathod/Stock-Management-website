@@ -89,7 +89,7 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 For any questions or feedback, please contact:
 
-- **Email**: [your-email@example.com](mailto:rathodrohan8242@gmail.com)
+- **Email**: [rathodrohan8242@gmail.com](mailto:rathodrohan8242@gmail.com)
 - **LinkedIn**: [Your LinkedIn Profile](linkedin.com/in/rathodrohan222)
 
 ---
