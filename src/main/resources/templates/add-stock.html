@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Stock</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #141E30, #243B55);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-group label {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-primary {
+            background-color: #1ABC9C;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #16A085;
+            transform: translateY(-5px);
+        }
+
+        .btn-secondary {
+            background-color: #34495E;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2C3E50;
+            transform: translateY(-5px);
+        }
+
+        .stock-news {
+            margin-top: 30px;
+        }
+
+        .stock-news h4 {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .stock-news ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .stock-news ul li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .stock-price-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .stock-price-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1ABC9C;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-dark text-light py-3">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="/" class="text-light text-decoration-none">
+                <h1 class="mb-0">Stock Manager</h1>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/stocks">Stock List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/stocks/add">Add Stock</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Add Stock Form -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-container">
+                <h2 class="text-center mb-4">Add New Stock</h2>
+                <form th:action="@{/stocks/add}" th:object="${stock}" method="post">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Enter stock name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" th:field="*{price}" class="form-control" step="0.01" placeholder="Enter stock price" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" th:field="*{quantity}" class="form-control" placeholder="Enter stock quantity" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" th:field="*{date}" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-plus"></i> Add Stock
+                    </button>
+                </form>
+                <a href="/stocks" class="btn btn-secondary btn-block mt-3">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stock-news">
+                <h4>Live Stock News</h4>
+                <ul>
+                    <li>Stock A hits a new high!</li>
+                    <li>Company B announces dividends.</li>
+                    <li>Market trends are bullish.</li>
+                </ul>
+            </div>
+            <div class="stock-price-box">
+                <h3>Stock Prices</h3>
+                <p>Company A: $150.00</p>
+                <p>Company B: $320.50</p>
+                <p>Company C: $89.30</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-3">
+    <div class="container">
+        <p class="mb-0 text-center">© 2024 RKR. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom 3D styles */
+        .hero-section {
+            background: linear-gradient(135deg, #ff4081, #81d4fa);
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            perspective: 1000px;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            transform: rotateY(15deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-section p {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            transform: rotateY(-15deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-section h1:hover, .hero-section p:hover {
+            transform: rotateY(0);
+        }
+
+        .hero-section .btn {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero-section .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        .features-section {
+            padding: 50px 0;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .feature-box {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            background: white;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-dark text-light py-3">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="/" class="text-light text-decoration-none">
+                <h1 class="mb-0">Stock Manager</h1>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/stocks">Stock List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/stocks/add">Add Stock</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <h1>Welcome to RKR Stock Manager</h1>
+    <p>Your ultimate tool to manage and track stocks Efficiently.</p>
+    <a href="/stocks/add" class="btn btn-primary">Get Started</a>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <h2>Why Choose Us?</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-box p-4">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h4>Real-time Tracking</h4>
+                    <p>Keep track of your stock prices with up-to-date data and insights.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box p-4">
+                    <i class="fas fa-user-shield feature-icon"></i>
+                    <h4>Secure & Reliable</h4>
+                    <p>Your data is safe with us, protected by top-notch security measures.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-box p-4">
+                    <i class="fas fa-bullseye feature-icon"></i>
+                    <h4>Accurate Analysis</h4>
+                    <p>Get precise insights and make informed decisions with our advanced tools.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p class="mb-0">© 2024 RKR. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
